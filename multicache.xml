@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_multicache</name>
+    <creationDate>2014-10-14</creationDate>
+    <copyright>Copyright (C) 2015. All rights reserved.</copyright>
+    <license>ProprietaryGNU GENERAL PUBLIC LICENSE see LICENSE.txt</license>
+    <author>Wayne </author>
+    <authorEmail>wayne.dsouza@onlinemarketingconsultants.in</authorEmail>
+    <authorUrl>http://OnlineMarketingConsultants.in</authorUrl>
+    <version>1.0.1.2</version>
+    <description>High Performance Cache Controller for Joomla</description>
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+	<filename>license.txt</filename>
+        <filename>index.html</filename>
+        <filename>multicache.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>lib</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>assets</folder>
+    </files>
+     <media folder="media" destination="com_multicache">
+		<filename>index.html</filename>
+		<filename>.htaccess</filename>
+		<filename>htaccess1.txt</filename>
+		<filename>multicache_resolver.php</filename>
+		<filename>multicache_delivery.php</filename>
+		<folder>assets</folder>
+	</media>
+    <languages folder="languages/site">
+        
+			<language tag="en-GB">en-GB/en-GB.com_multicache.ini</language>
+    </languages>
+    <administration>
+        <menu img="components/com_multicache/assets/images/s_com_multicache.png" >com_multicache</menu>
+        <submenu>
+                        
+<menu link="option=com_multicache&amp;view=advancedsimulation" view="advancedsimulation" img="components/com_multicache/assets/images/s_simulationdashboard.png" alt="Multicache/SimulationDashboard">com_multicache_title_simulation_dashboard</menu>
+
+<menu link="option=com_multicache&amp;view=urls" view="urls" img="components/com_multicache/assets/images/s_urls.png" alt="Multicache/Config">com_multicache_title_url_ln</menu>
+
+<menu link="option=com_multicache&amp;view=multicache" view="multicache" img="components/com_multicache/assets/images/s_multicache.png" alt="Multicache/Multicache">com_multicache_group_cache_clear</menu>
+
+<menu link="option=com_multicache&amp;view=pagecache" view="urls" img="components/com_multicache/assets/images/s_pagecache.png" alt="Multicache/Config">com_multicache_title_pagecache</menu>
+
+<menu link="option=com_multicache&amp;view=config&amp;layout=edit&amp;id=1" view="config" img="components/com_multicache/assets/images/s_multicacheconfig.png" alt="Multicache/Multicache">com_multicache_title_config</menu>	    
+
+
+        </submenu>
+        <files folder="administrator">
+	<filename>access.xml</filename>
+            <filename>license.txt</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>multicache.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>lib</folder>
+            <folder>models</folder>
+	        <folder>language</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+            
+			<language tag="en-GB">en-GB/en-GB.com_multicache.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_multicache.sys.ini</language>
+        </languages>
+    </administration>
+
+    
+</extension>

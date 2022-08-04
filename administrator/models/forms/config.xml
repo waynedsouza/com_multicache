@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+		name="cache"
+		label="COM_MULTICACHE_CACHE_SETTINGS_LABEL">
+		<field
+			name="caching"
+			type="list"
+			default="1"
+			label="COM_MULTICACHE_FIELD_CACHE_LABEL"
+			description="COM_MULTICACHE_FIELD_CACHE_DESC"
+			required="true"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD_VALUE_CACHE_OFF</option>
+			<option value="1">COM_MULTICACHE_FIELD_VALUE_CACHE_CONSERVATIVE</option>
+			<option value="2">COM_MULTICACHE_FIELD_VALUE_CACHE_PROGRESSIVE</option>
+		</field>
+		<field
+			name="cache_handler"
+			type="cachehandler"
+			default=""
+			label="COM_MULTICACHE_FIELD_CACHE_HANDLER_LABEL"
+			description="COM_MULTICACHE_FIELD_CACHE_HANDLER_DESC"
+			filter="word">
+		</field>
+
+		<field
+			name="cachetime"
+			type="text"
+			default="10200"
+			label="COM_MULTICACHE_FIELD_CACHE_TIME_LABEL"
+			description="COM_MULTICACHE_FIELD_CACHE_TIME_DESC"
+			required="true"
+			filter="integer"
+			size="6" />
+
+		<field
+			name="multicache_persist"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+			label="COM_MULTICACHE_FIELD_multicache_PERSISTENT_LABEL"
+			description="COM_MULTICACHE_FIELD_multicache_PERSISTENT_DESC"
+			showon="cache_handler:multicache"
+			filter="integer">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field
+			name="multicache_compress"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+			label="COM_MULTICACHE_FIELD_multicache_COMPRESSION_LABEL"
+			description="COM_MULTICACHE_FIELD_multicache_COMPRESSION_DESC"
+			showon="cache_handler:multicache"
+			filter="integer">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field
+			name="multicache_server_host"
+			type="text"
+			default="localhost"
+			label="COM_MULTICACHE_FIELD_multicache_HOST_LABEL"
+			description="COM_MULTICACHE_FIELD_multicache_HOST_DESC"
+			showon="cache_handler:multicache"
+			filter="string"
+			size="25" />
+
+		<field
+			name="multicache_server_port"
+			type="text"
+			default="11211"
+			label="COM_MULTICACHE_FIELD_multicache_PORT_LABEL"
+			description="COM_MULTICACHE_FIELD_multicache_PORT_DESC"
+			showon="cache_handler:multicache"
+			filter="integer"
+			size="5" />
+
+		
+	</fieldset>
+	
+	<fieldset
+		name="pagespeedtesting"
+		label="COM_MULTICACHE_PAGE_SPEED_TESTING_LABEL">
+		 <field name="gtmetrix_testing" type="radio" default="0" label="COM_MULTICACHE_GTMETRIX_TESTING_LABEL" class="btn-group btn-group-yesno" description="COM_MULTICACHE_GTMETRIX_TESTINg_DESCRIPTION">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+</field>
+	<field name="gtmetrix_api_budget" type="integer" default="20" label="COM_MULTICACHE_GTMETRIX_API_BUDGET_LABEL" description="COM_MULTICACHE_GTMETRIX_API_BUDGET_DESCRIPTION" first="0" last="100" step="1" size="6"/>	
+		<field name="gtmetrix_email" type="email"
+        label="JGLOBAL_EMAIL"
+        description="COM_MULTICACHE_EMAIL_GTMETRIX_EMAIL_DESC"
+        size="30"
+        class="inputbox"
+        validate="email" />
+        
+        <field name="gtmetrix_token" type="text" default="" label="COM_MULTICACHE_GTMETRIX_TOKEN_LABEL" description="COM_MULTICACHE_GTMETRIX_TOKEN_DESC" size="10" />
+        <field name="gtmetrix_adblock" type="radio" default="1" label="COM_MULTICACHE_GTMETRIX_ADBLOCK_LABEL" class="btn-group btn-group-yesno" description="COM_MULTICACHE_GTMETRIX_ADBLOCK_DESCRIPTION">
+  <option value="0">JNO</option>
+  <option value="1">JYES</option>
+</field>
+<field name="gtmetrix_test_url" type="url" default="" label="COM_MULTICACHE_GTMETRIX_TEST_URL_LABEL" description="COM_MULTICACHE_GTMETRIX_TEST_URL_DESCRIPTION" size="10" />
+ <field name="gtmetrix_allow_simulation" type="radio" default="1" label="COM_MULTICACHE_GTMETRIX_ALLOW_SIMULATION_LABEL" class="btn-group btn-group-yesno" description="COM_MULTICACHE_GTMETRIX_ALLOW_SIMULATION_DESCRIPTION">
+  <option value="0">JNO</option>
+  <option value="1">JYES</option>
+</field>
+ <field name="gtmetrix_allow_simulation" type="radio" default="1" label="COM_MULTICACHE_GTMETRIX_ALLOW_SIMULATION_LABEL" class="btn-group btn-group-yesno" description="COM_MULTICACHE_GTMETRIX_ALLOW_SIMULATION_DESCRIPTION">
+  <option value="0">JNO</option>
+  <option value="1">JYES</option>
+</field>
+<field name="cron_url" type="url" default="" label="COM_MULTICACHE_CONFIG_CRON_URL_LABEL" description="COM_MULTICACHE_CONFIG_CRON_URL_DESCRIPTION" size="10" />        
+<field name="simulation_advanced" type="checkbox" showon="gtmetrix_allow_simulation:1" label="COM_MULTICACHE_GTMETRIX_SIMULATION_ADVANCED_LABEL" description="COM_MULTICACHE_GTMETRIX_ADVANCED_SIMULATION_DESCRIPTION" value="1" default="0" />
+
+<field name="jssimulation_parse" type="radio" showon="simulation_advanced:1" default="1" label="COM_MULTICACHE_CONFIG_JSSIMULATION_PARSE_SIMULATION_LABEL" class="btn-group btn-group-yesno" description="COM_MULTICACHE_CONFIG_JSSIMULATION_PARSE_SIMULATION_DESCRIPTION">
+  <option value="1">COM_MULTICACHE_JSSIMULATION_OPTIONS_INTERNAL_LABEL</option>
+  <option value="2">COM_MULTICACHE_JSSIMULATION_OPTIONS_URLPARSE_LABEL</option>
+</field>
+
+<field name="gtmetrix_cycles" type="integer" default="1" label="COM_MULTICACHE_GTMETRIX_CYCLES_LABEL" description="COM_MULTICACHE_GTMETRIX_CYCLES_DESCRIPTION" first="1" last="10" step="1" />
+<field name="precache_factor_min" type="integer" default="0" label="COM_MULTICACHE_PRECACHE_FACTOR_MIN_LABEL" description="COM_MULTICACHE_PRECACHE_FACTOR_MIN_DESCRIPTION" first="0" last="10" step="1" />
+<field name="precache_factor_max" type="integer" default="9" label="COM_MULTICACHE_PRECACHE_FACTOR_MAX_LABEL" description="COM_MULTICACHE_PRECACHE_FACTOR_MAX_DESCRIPTION" first="0" last="9" step="1" />
+<field name="precache_factor_default" type="integer" default="2" label="COM_MULTICACHE_PRECACHE_FACTOR_DEFAULT_LABEL" description="COM_MULTICACHE_PRECACHE_FACTOR_DEFAULT_DESCRIPTION" first="0" last="9" step="1" />
+
+<field name="gzip_factor_min" type="text" default="0" label="COM_MULTICACHE_GZIP_FACTOR_MIN_LABEL" description="COM_MULTICACHE_GZIP_FACTOR_MIN_DESCRIPTION" filter="float" />
+<field name="gzip_factor_max" type="text" default="1" label="COM_MULTICACHE_GZIP_FACTOR_MAX_LABEL" description="COM_MULTICACHE_GZIP_FACTOR_MAX_DESCRIPTION" filter="float" />
+<field name="gzip_factor_step" type="text" default="0.1" label="COM_MULTICACHE_GZIP_FACTOR_STEP_LABEL" description="COM_MULTICACHE_GZIP_FACTOR_STEP_DESCRIPTION" filter="float" />
+<field name="gzip_factor_default" type="text" default="0.22" label="COM_MULTICACHE_GZIP_FACTOR_DEFAULT_LABEL" description="COM_MULTICACHE_GZIP_FACTOR_DEFAULT_DESCRIPTION" filter="float" />
+	</fieldset>
+	<fieldset
+		name="pagedistribution"
+		label="COM_MULTICACHE_PAGE_DISTRIBUTION_SETTINGS_LABEL">
+		<field
+			name="googleclientid"
+			type="text"
+			default=""
+			label="COM_MULTICACHE_FIELD_GOOGLE_CLIENT_ID_LABEL"
+			description="COM_MULTICACHE_GOOGLE_CLIENT_ID_DESC"
+			filter="string"
+			size="6" />
+			<field
+			name="googleclientsecret"
+			type="text"
+			default=""
+			label="COM_MULTICACHE_FIELD_GOOGLE_CLIENT_SECRET_LABEL"
+			description="COM_MULTICACHE_GOOGLE_CLIENT_SECRET_DESC"
+			filter="string"
+			size="6" />
+			
+			<field
+			name="googleviewid"
+			type="text"
+			default=""
+			label="COM_MULTICACHE_FIELD_GOOGLE_VIEW_ID_LABEL"
+			description="COM_MULTICACHE_GOOGLE_VIEW_ID_DESC"
+			filter="string"
+			size="6" />
+			
+			<field 
+			name="redirect_uri" 
+			type="url" 
+			default="" 
+			label="COM_MULTICACHE_CONFIG_REDIRECT_URI_LABEL" 
+			description="COM_MULTICACHE_CONFIG_REDIRECT_URI_DESCRIPTION"
+			size="10" />
+			
+			<field name="googlestartdate" 
+			type="calendar" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_GOOGLE_START_DATE_LABEL" 
+			description="COM_MULTICACHE_FIELD_GOOGLE_START_DATE_DESC" 
+			format="%Y-%m-%d" />
+			
+			<field name="googleenddate" 
+			type="calendar" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_GOOGLE_END_DATE_LABEL" 
+			description="COM_MULTICACHE_FIELD_GOOGLE_END_DATE_DESC" 
+			format="%Y-%m-%d" />
+			
+			<field
+			name="googlenumberurlscache"
+			type="text"
+			default="200"
+			label="COM_MULTICACHE_FIELD_GOOGLE_RESULTS_URL_NUMBER_CACHE_LABEL"
+			description="COM_MULTICACHE_FIELD_GOOGLE_RESULTS_URL_NUMBER_CACHE_DESC"
+			filter="integer"
+			size="5" />
+			<field
+			name="multicachedistribution"
+			type="radio"
+			default="3"
+			label="COM_MULTICACHE_FIELD_DISTRIBUTION_MODE_LABEL"
+			description="COM_MULTICACHE_FIELD_DISTRIBUTION_MODE_DESC"
+			class="btn-group"
+			filter="integer">
+			<option
+				value="3">COM_MULTICACHE_MCD_PAGE_HIGH_HAMMERED</option>
+<option
+				value="2">COM_MULTICACHE_MCD_PAGE_STRICT</option>
+			<option
+				value="1">COM_MULTICACHE_MCD_MULTIADMIN_MODE</option>
+			<option
+				value="0">COM_MULTICACHE_MCD_CART_MODE</option>
+		</field>
+		
+		<field name="cartsessionvariables" 
+			type="textarea" 
+			default="vmcart,vm" 
+			label="COM_MULTICACHE_FIELD_CART_SESSION_VARIABLES_LABEL" 
+			description="COM_MULTICACHE_FIELD_CART_SESSION_VARIABLES_DESC" 
+			showon="multicachedistribution:0"
+			rows="5" cols="10" 
+			/>
+				<field name="cartdifferentiators" 
+			type="textarea" 
+			default="virtuemart_currency_id
+			com_virtuemart" 
+			label="COM_MULTICACHE_FIELD_CART_DIFFERENTIATORS_VARIABLES_LABEL" 
+			description="COM_MULTICACHE_FIELD_CART_DIFFERENTIATORS_VARIABLES_DESC" 
+			showon="multicachedistribution:0"
+			rows="5" cols="10" 
+			/>
+		
+		<field
+			name="cartmode"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_CART_MODE_LABEL"
+			description="COM_MULTICACHE_CART_MODE_DESC"
+			class="btn-group"
+			required="true"
+			showon="multicachedistribution:0"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD__CART_MODE_ALL_PAGES</option>
+			<option value="1">COM_MULTICACHE_FIELD__CART_MODE_FEW_PAGES</option>
+			<option value="2">COM_MULTICACHE_FIELD__CART_MODE_NOT_THESE_PAGES</option>
+			
+		</field>
+		
+		<field name="cartmodeurlinclude" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_CART_URL_INCLUDE_LABEL" 
+			description="COM_MULTICACHE_FIELD_CART_URL_INCLUDE_DESC" 
+			showon="cartmode:1,2"
+			rows="5" cols="10" 
+			/>
+			
+			<field
+			name="urlfilters"
+			type="radio"
+			default="1"
+			label="COM_MULTICACHE_FIELD_URL_FILTERS_LABEL"
+			description="COM_MULTICACHE_FIELD_URL_FILTERS_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD_FILTER_OFF</option>
+			<option value="1">COM_MULTICACHE_FIELD_FILTER_REMOVE_QUERY_FRAGMENT</option>
+			<option value="2">COM_MULTICACHE_FIELD_VALUE_REMOVE_QUERY_URLS</option>
+		</field>
+		<field
+			name="frequency_distribution"
+			type="radio"
+			default="1"
+			label="COM_MULTICACHE_FIELD_FREQUENCY_DIST_LABEL"
+			description="COM_MULTICACHE_FIELD_FREQUENCY_DIST_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+
+		</field>
+		<field
+			name="natlogdist"
+			type="radio"
+			default="1"
+			label="COM_MULTICACHE_FIELD_NATURAL_LOGRITHM_LABEL"
+			description="COM_MULTICACHE_FIELD_NATURAL_LOGRITHM_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+
+		</field>
+	
+
+</fieldset>
+<fieldset
+		name="optimization"
+		label="COM_MULTICACHE_SETTINGS_ADVANCED_LABEL">
+		
+		
+				<field name="indexhack" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_INDEXHACK_ADVANCEDCACHE_LABEL" 
+		description="COM_MULTICACHE_INDEXHACK_ADVANCEDCACHE_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+  
+</field>
+		<field name="force_precache_off" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_FORCE_PRECACHE_OFF_LABEL" 
+		description="COM_MULTICACHE_FORCE_PRECACHE_OFF_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+  </field>
+<field name="force_locking_off" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_FORCE_LOCKING_OFF_LABEL" 
+		description="COM_MULTICACHE_FORCE_LOCKING_OFF_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="conduit_switch" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_CONDUIT_SWITCH_LABEL" 
+		description="COM_MULTICACHE_CONDUIT_SWITCH_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JOff</option>
+  <option value="1">COM_MULTICACHE_CONDUIT_LABEL_AJAX</option>
+  <option value="2">COM_MULTICACHE_CONDUIT_LABEL_JQUERY</option>
+
+</field>
+<field name="minify_html" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_ADVANCED_MINIFY_HTML_LABEL" 
+		description="COM_MULTICACHE_ADVANCED_MINIFY_HTML_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+		
+		
+		<field name="additionalpagecacheurls" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_ADDITIONAL_PAGE_CACHE_URLS_LABEL" 
+			description="COM_MULTICACHE_FIELD_ADDITIONAL_PAGE_CACHE_URLS_DESC" 
+			rows="5" cols="80" 
+			/>
+					<field name="advanced_simulation_lock" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_FIELD_ADVANCED_SIMULATION_LABEL" 
+		description="COM_MULTICACHE_FIELD_ADVANCED_SIMULATION_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+  </field>
+  
+  <field name="positional_dontmovesrc" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_POSITIONAL_DONT_MOVE_URLS_LABEL" 
+			description="COM_MULTICACHE_FIELD_POSITIONAL_DONT_MOVE_URLS_DESC" 
+			rows="5" cols="80" 
+			/>
+			 <field name="allow_multiple_orphaned" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_ALLOWMULTIPLEORPHANED_LABEL" 
+			description="COM_MULTICACHE_FIELD_ALLOWMULTIPLEORPHANED_URLS_DESC" 
+			rows="5" cols="80" 
+			/>
+			 
+			<field name="targetpageloadtime" type="integer" default="3" label="COM_MULTICACHE_TARGET_PAGE_LOAD_TIME_LABEL" description="COM_MULTICACHE_TARGET_PAGE_LOAD_TIME_DESC" first="3" last="8" step="1" size="6"/>	
+			<field
+			name="algorithmavgloadtimeweight"
+			type="text"
+			default="0.4"
+			label="COM_MULTICACHE_FIELD_ALGORITHM_AVG_LOAD_TIME_WEIGHT_LABEL"
+			description="COM_MULTICACHE_FIELD_ALGORITHM_AVG_LOAD_TIME_WEIGHT_DESC"
+			required="true"
+			filter="string"
+			size="6" />
+			
+			<field
+			name="algorithmmodemaxbelowtimeweight"
+			type="text"
+			default="0.4"
+			label="COM_MULTICACHE_FIELD_ALGORITHM_MODE_MAX_BELOW_TIME_WEIGHT_LABEL"
+			description="COM_MULTICACHE_FIELD_ALGORITHM_MODE_MAX_BELOW_TIME_WEIGHT_DESC"
+			required="true"
+			filter="string"
+			size="6" />
+			
+			<field
+			name="algorithmvarianceweight"
+			type="text"
+			default="0.2"
+			label="COM_MULTICACHE_FIELD_ALGORITHM_VARIANCE_WEIGHT_LABEL"
+			description="COM_MULTICACHE_FIELD_ALGORITHM_VARIANCE_WEIGHT_DESC"
+			required="true"
+			filter="string"
+			size="6" />
+				<field name="deployment_method" 
+		type="radio" default="3" 
+		label="COM_MULTICACHE_FIELD_DEPLOYMENT_METHOD_LABEL" 
+		description="COM_MULTICACHE_FIELD_DEPLOYMENT_METHOD_DESC"
+		class="btn-group"
+		filter="integer">
+  <option value="0">COM_MULTICACHE_FIELD_FILTER_DEPLOYMENT_OFF</option>
+  <option value="1">COM_MULTICACHE_FIELD_FILTER_DEFAULT_DEPLOYMENT</option>
+  <option value="2">COM_MULTICACHE_FIELD_FILTER_DEPLOYMENT_BLT</option>
+  <option value="3">COM_MULTICACHE_FIELD_FILTER_DEPLOYMENT_ALGORITHM</option>
+</field>
+</fieldset>
+
+
+<fieldset
+		name="javascripttweaks"
+		label="COM_MULTICACHE_PAGE_SPEED_TESTING_LABEL">
+		
+		<field name="js_switch" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_SWITCH_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_SWITCH_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JOff</option>
+  <option value="1">JOn</option>
+
+</field>
+<field name="default_scrape_url"
+ type="url" 
+ default="" 
+ label="COM_MULTICACHE_JAVASCRIPT_TEMPLATE_URL_LABEL" 
+ description="COM_MULTICACHE_JAVASCRIPT_TEMPLATE_URL_DESCRIPTION" 
+ size="10" />
+ 
+ <field name="principle_jquery_scope"
+  type="radio" 
+  default="0"
+  label="COM_MULTICACHE_PRINCIPLE_JQUERY_SCOPE_LABEL" 
+  description="COM_MULTICACHE_PRINCIPLE_JQUERY_SCOPE_DESCRIPTION">
+  <option value="0">jQuery</option>
+  <option value="1">$</option>
+  <option value="2">COM_MULTICACHE_PRICIPLE_SCOPE_VARIABLE_OTHER</option>
+</field>
+<field name="principle_jquery_scope_other" 
+type="text" 
+default="" 
+showon="principle_jquery_scope:2"
+label="COM_MULTICACHE_PRICIPLE_SCOPE_VARIABLE_OTHER_ELAB_LABEL" 
+description="COM_MULTICACHE_PRICIPLE_SCOPE_VARIABLE_OTHER_ELAB_DESCRIPTION" 
+size="10" />
+
+<field name="dedupe_scripts" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEPUPE_SWITCH_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_DEPUPE_SWITCH_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="defer_social" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEFER_SOCIAL_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEFER_SOCIAL_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="defer_advertisement" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEFER_ADVERTISEMENT_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEFER_ADVERTISEMENT_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="defer_async" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEFER_ASYNC_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEFER_ASYNC_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="maintain_preceedence" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_MAINTAIN_PRECEEDENCE_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_MAINTAIN_PRECEEDENCE_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="minimize_roundtrips" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_MINIMIZE_ROUNDTRIPS_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_MINIMIZE_ROUNDTRIPS_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+ 	<field name="social_script_identifiers" 
+			type="textarea" 
+			default="FB.init
+			assets.pinterest.com
+			platform.twitter.com
+			plusone.js" 
+			label="COM_MULTICACHE_FIELD_SOCIAL_SCRIPT_IDENTIFIER_LABEL" 
+			description="COM_MULTICACHE_FIELD_SOCIAL_SCRIPT_IDENTIFIER_DESC" 
+			rows="1" cols="10" 
+			/>
+			
+	<field name="advertisement_script_identifiers" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_ADVT_SCRIPT_IDENTIFIER_LABEL" 
+			description="COM_MULTICACHE_FIELD_ADVT_SCRIPT_IDENTIFIER_LABEL_DESC" 
+			rows="1" cols="10" 
+			/>
+			
+	<field name="pre_head_stub_identifiers" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_PREHEAD_STUB_IDENTIFIER_LABEL" 
+			description="COM_MULTICACHE_FIELD_PREHEAD_STUB_IDENTIFIER_DESC"
+			filter="raw"  
+			rows="1" cols="10" 
+			/>
+	<field name="head_stub_identifiers" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_HEAD_STUB_IDENTIFIER_LABEL" 
+			description="COM_MULTICACHE_FIELD_HEAD_STUB_IDENTIFIER_DESC" 
+			filter="raw"
+			rows="1" cols="10" 
+			/>
+	<field name="body_stub_identifiers" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_BODY_STUB_IDENTIFIER_LABEL" 
+			description="COM_MULTICACHE_FIELD_BODY_STUB_IDENTIFIER_DESC"
+			filter="raw" 
+			rows="1" cols="10" 
+			/>
+	<field name="footer_stub_identifiers" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_FOOTER_STUB_IDENTIFIER_LABEL" 
+			description="COM_MULTICACHE_FOOTER_STUB_IDENTIFIER_DESC"
+			filter="raw" 
+			rows="1" cols="10" 
+			/> 
+			
+		
+		<field name="js_comments" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_INCLUDE_COMMENTS_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_INCLUDE_COMMENTS_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="compress_js" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JS_TWEAKS_COMPRESS_JS_LABEL" 
+		description="COM_MULTICACHE_JS_TWEAKS_COMPRESS_JS_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+		<field name="debug_mode" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEBUG_MODE_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_DEBUG_MODE_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="resultant_async" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_RESULTANT_ASYNC_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_RESULTANT_ASYNC_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="resultant_defer" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_JAVASCRIPT_TWEAKS_RESULTANT_DEFER_LABEL" 
+		description="COM_MULTICACHE_JAVASCRIPT_TWEAKS_RESULTANT_DEFER_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+
+			
+			<field
+			name="orphaned_scripts"
+			type="list"
+			default="4"
+			label="COM_MULTICACHE_FIELD_ORPHANED_LABEL"
+			description="COM_MULTICACHE_FIELD_ORPHANED_DESC"
+			required="true"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD_VALUE_ORPHANED_DEFAULT</option>
+			<option value="1">COM_MULTICACHE_FIELD_VALUE_ORPHANED_HEAD_PRE</option>
+			<option value="2">COM_MULTICACHE_FIELD_VALUE_ORPHANED_HEAD</option>
+			<option value="3">COM_MULTICACHE_FIELD_VALUE_ORPHANED_BODY</option>
+			<option value="4">COM_MULTICACHE_FIELD_VALUE_ORPHANED_FOOTER</option>
+		</field>
+		</fieldset>
+		<fieldset
+		name="javascriptexclusions"
+		label="COM_MULTICACHE_JAVASCRIPT_EXCLUSIONS_LABEL">
+		
+		<field
+			name="js_tweaker_url_include_exclude"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_JS_TWEAKER_URL_INCLUDE_EXCLUDE_LABEL"
+			description="COM_MULTICACHE_FIELD_JS_TWEAKER_URL_INCLUDE_EXCLUDE_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD__JSTWEAKER_INCLUDE_URL_EXCLUDE_ALL_PAGES</option>
+			<option value="1">COM_MULTICACHE_FIELD__JSTWEAKER_INCLUDE_URL_EXCLUDE_THESE_PAGES</option>
+			<option value="2">COM_MULTICACHE_FIELD__JSTWEAKER_INCLUDE_URL_EXCLUDE_NOT_THESE_PAGES</option>
+			
+		</field>
+
+
+<field name="jst_urlinclude" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_JST_URL_INCLUDE_LABEL" 
+			description="COM_MULTICACHE_FIELD_JST_URL_INCLUDE_DESC" 
+			showon="js_tweaker_url_include_exclude:1,2"
+			rows="5" cols="10" 
+			/>
+<field
+			name="jst_query_include_exclude"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_JST_QUERY_SWITCH_LABEL"
+			description="COM_MULTICACHE_FIELD_JST_QUERY_SWITCH_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">JOFF</option>
+			<option value="1">COM_MULTICACHE_FIELD_QUERY_SWITCH_INCLUDE</option>
+			<option value="2">COM_MULTICACHE_FIELD_QUERY_SWITCH_EXCLUDE</option>
+			
+		</field>
+
+	<field name="jst_query_param" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_JST_QUERY_PARAMS_LABEL" 
+			description="COM_MULTICACHE_FIELD_JST_QUERY_PARAMS_DESC" 
+			showon="jst_query_include_exclude:1,2"
+			rows="5" cols="10" 
+			/>
+			
+			<field name="jst_url_string" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_JST_URL_STRING_LABEL" 
+			description="COM_MULTICACHE_FIELD_JST_URL_STRING_DESC" 
+			rows="5" cols="10" 
+			/>
+		</fieldset>
+		<fieldset
+		name="stylecsstweaks"
+		label="COM_MULTICACHE_PAGE_CSS_TWEAKS_LABEL">
+		
+		<field name="css_switch" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_CSS_TWEAKS_SWITCH_LABEL" 
+		description="COM_MULTICACHE_CSS_TWEAKS_SWITCH_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JOff</option>
+  <option value="1">JOn</option>
+
+</field>
+<field name="css_scrape_url"
+ type="url" 
+ default="" 
+ label="COM_MULTICACHE_CSS_TEMPLATE_URL_LABEL" 
+ description="COM_MULTICACHE_CSS_TEMPLATE_URL_DESCRIPTION" 
+ size="10" />
+ 
+ 
+<field name="dedupe_css_styles" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_CSS_TWEAKS_DEPUPE_SWITCH_LABEL" 
+		description="COM_MULTICACHE_CSS_DEPUPE_SWITCH_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+
+<field name="css_maintain_preceedence" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_CSS_TWEAKS_MAINTAIN_PRECEEDENCE_LABEL" 
+		description="COM_MULTICACHE_CSS_TWEAKS_MAINTAIN_PRECEEDENCE_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="group_css_styles" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_CSS_TWEAKS_GROUP_SCRIPTS_LABEL" 
+		description="COM_MULTICACHE_CSS_TWEAKS_GROUP_SCRIPTS_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="compress_css" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_CSS_TWEAKS_COMPRESS_CSS_LABEL" 
+		description="COM_MULTICACHE_CSS_TWEAKS_COMPRESS_CSS_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+<field name="css_groupsasync" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_CSS_TWEAKS_GROUPSASYNC_CSS_LABEL" 
+		description="COM_MULTICACHE_CSS_TWEAKS_GROUPSASYNC_CSS_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+  <option value="2">onLoad</option>
+
+</field>
+<field name="groups_async_exclude" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_GROUPS_ASYNC_EXCLUDE_LABEL" 
+			description="COM_MULTICACHE_FIELD_GROUPS_ASYNC_EXCLUDE_DESC" 
+			filter="raw"
+			rows="1" cols="10" 
+			/>
+<field name="groups_async_delay" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_GROUPS_ASYNC_DELAY_LABEL" 
+			description="COM_MULTICACHE_FIELD_GROUPS_ASYNC_DELAY_DESC" 
+			filter="raw"
+			rows="1" cols="10" 
+			/>
+ 	<field name="css_special_identifiers" 
+			type="textarea" 
+			default="media
+			" 
+			label="COM_MULTICACHE_FIELD_CSS_SPL_IDENTIFIERS_LABEL" 
+			description="COM_MULTICACHE_FIELD_SCSS_SPL_IDENTIFIERS_DESC" 
+			rows="1" cols="10" 
+			/>
+			
+				
+		
+		<field name="css_comments" 
+		type="radio" default="1" 
+		label="COM_MULTICACHE_CSS_TWEAKS_INCLUDE_COMMENTS_LABEL" 
+		description="COM_MULTICACHE_CSS_TWEAKS_INCLUDE_COMMENTS_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JNo</option>
+  <option value="1">JYes</option>
+
+</field>
+					
+			<field
+			name="orphaned_styles_loading"
+			type="list"
+			default="4"
+			label="COM_MULTICACHE_FIELD_STYLEORPHANED_LABEL"
+			description="COM_MULTICACHE_FIELD_STYLEORPHANED_DESC"
+			required="true"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD_VALUE_STYLEORPHANED_DEFAULT</option>
+			<option value="1">COM_MULTICACHE_FIELD_VALUE_STYLEORPHANED_HEAD_PRE</option>
+			<option value="2">COM_MULTICACHE_FIELD_VALUE_STYLEORPHANED_HEAD</option>
+			<option value="3">COM_MULTICACHE_FIELD_VALUE_STYLEORPHANED_BODY</option>
+			<option value="4">COM_MULTICACHE_FIELD_VALUE_STYLEORPHANED_FOOTER</option>
+		</field>
+		
+		</fieldset>
+		
+				<fieldset
+		name="cssstylesexclusions"
+		label="COM_MULTICACHE_CSSSTYLES_EXCLUSIONS_LABEL">
+		
+		<field
+			name="css_tweaker_url_include_exclude"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_CSS_TWEAKER_URL_INCLUDE_EXCLUDE_LABEL"
+			description="COM_MULTICACHE_FIELD_CSS_TWEAKER_URL_INCLUDE_EXCLUDE_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD__CSSTWEAKER_INCLUDE_URL_EXCLUDE_ALL_PAGES</option>
+			<option value="1">COM_MULTICACHE_FIELD__CSSTWEAKER_INCLUDE_URL_EXCLUDE_THESE_PAGES</option>
+			<option value="2">COM_MULTICACHE_FIELD__CSSTWEAKER_INCLUDE_URL_EXCLUDE_NOT_THESE_PAGES</option>
+			
+		</field>
+
+
+<field name="css_urlinclude" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_CSS_URL_INCLUDE_LABEL" 
+			description="COM_MULTICACHE_FIELD_CSS_URL_INCLUDE_DESC" 
+			showon="css_tweaker_url_include_exclude:1,2"
+			rows="5" cols="10" 
+			/>
+<field
+			name="css_query_include_exclude"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_CSS_QUERY_SWITCH_LABEL"
+			description="COM_MULTICACHE_FIELD_CSS_QUERY_SWITCH_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">JOFF</option>
+			<option value="1">COM_MULTICACHE_FIELD_QUERY_SWITCH_INCLUDE</option>
+			<option value="2">COM_MULTICACHE_FIELD_QUERY_SWITCH_EXCLUDE</option>
+			
+		</field>
+
+	<field name="css_query_param" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_CSS_QUERY_PARAMS_LABEL" 
+			description="COM_MULTICACHE_FIELD_CSS_QUERY_PARAMS_DESC" 
+			showon="css_query_include_exclude:1,2"
+			rows="5" cols="10" 
+			/>
+			
+			<field name="css_url_string" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_CSS_URL_STRING_LABEL" 
+			description="COM_MULTICACHE_FIELD_CSS_URL_STRING_DESC" 
+			rows="5" cols="10" 
+			/>
+		</fieldset>
+		<fieldset
+		name="imagetweaksexclusions"
+		label="COM_MULTICACHE_IMAGE_TWEAKS_EXCLUSIONS_LABEL">
+		
+		<field name="image_lazy_switch" 
+		type="radio" default="0" 
+		label="COM_MULTICACHE_IMAGE_TWEAKS_LAZY_SWITCH_LABEL" 
+		description="COM_MULTICACHE_IMAGE_TWEAKS_LAZY_SWITCH_DESCRIPTION"
+		class="btn-group"
+		filter="integer">
+  <option value="0">JOff</option>
+  <option value="1">JOn</option>
+
+</field>
+
+			<field
+			name="image_lazy_image_selector_include_switch"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_IMAGES_TWEAKER_IMAGE_SELECTOR_INCLUDE_SWITCH_LABEL"
+			description="COM_MULTICACHE_FIELD_IMAGES_TWEAKER_IMAGE_SELECTOR_INCLUDE_SWITCH_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">JOff</option>
+            <option value="1">JOn</option>
+			
+		</field>
+<field name="image_lazy_image_selector_include_strings" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_IMAGE_TWEAKS_IMAGE_SELECTORS_INCLUDE_STRING_LABEL" 
+			description="COM_MULTICACHE_FIELD_IMAGE_TWEAKS_IMAGE_SELECTORS_INCLUDE_STRING_DESC" 
+			showon="image_lazy_image_selector_include_switch:1"
+			rows="5" cols="10" 
+			/>
+					<field
+			name="image_lazy_image_selector_exclude_switch"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_IMAGESTWEAKER_IMAGESELECTORS_EXCLUDE_SWITCH_LABEL"
+			description="COM_MULTICACHE_FIELD_IMAGESTWEAKER_IMAGESELECTORS_EXCLUDE_SWITCH_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">JOff</option>
+            <option value="1">JOn</option>
+			
+		</field>
+<field name="image_lazy_image_selector_exclude_strings" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_IMAGE_TWEAKS_IMAGE_SELECTORS_EXCLUDE_STRING_LABEL" 
+			description="COM_MULTICACHE_FIELD_IMAGE_TWEAKS_IMAGE_SELECTORS_EXCLUDE_STRING_DESC" 
+			showon="image_lazy_image_selector_exclude_switch:1"
+			rows="5" cols="10" 
+			/>
+		</fieldset>
+						<fieldset
+		name="lazyloadexclusions"
+		label="COM_MULTICACHE_CSSSTYLES_EXCLUSIONS_LABEL">
+		
+		<field
+			name="imagestweaker_url_include_exclude"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_IMAGES_TWEAKER_URL_INCLUDE_EXCLUDE_LABEL"
+			description="COM_MULTICACHE_FIELD_IMAGES_TWEAKER_URL_INCLUDE_EXCLUDE_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">COM_MULTICACHE_FIELD__CSSTWEAKER_INCLUDE_URL_EXCLUDE_ALL_PAGES</option>
+			<option value="1">COM_MULTICACHE_FIELD__CSSTWEAKER_INCLUDE_URL_EXCLUDE_THESE_PAGES</option>
+			<option value="2">COM_MULTICACHE_FIELD__CSSTWEAKER_INCLUDE_URL_EXCLUDE_NOT_THESE_PAGES</option>
+			
+		</field>
+
+
+<field name="images_urlinclude" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_IMAGES_URL_INCLUDE_LABEL" 
+			description="COM_MULTICACHE_FIELD_IMAGES_URL_INCLUDE_DESC" 
+			showon="imagestweaker_url_include_exclude:1,2"
+			rows="5" cols="10" 
+			/>
+<field
+			name="images_query_include_exclude"
+			type="radio"
+			default="0"
+			label="COM_MULTICACHE_FIELD_IMAGES_QUERY_SWITCH_LABEL"
+			description="COM_MULTICACHE_FIELD_IMAGES_QUERY_SWITCH_DESC"
+			class="btn-group"
+			required="true"
+			filter="integer">
+			<option value="0">JOFF</option>
+			<option value="1">COM_MULTICACHE_FIELD_QUERY_SWITCH_INCLUDE</option>
+			<option value="2">COM_MULTICACHE_FIELD_QUERY_SWITCH_EXCLUDE</option>
+			
+		</field>
+
+	<field name="images_query_param" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_IMAGES_QUERY_PARAMS_LABEL" 
+			description="COM_MULTICACHE_FIELD_IMAGES_QUERY_PARAMS_DESC" 
+			showon="images_query_include_exclude:1,2"
+			rows="5" cols="10" 
+			/>
+			
+			<field name="images_url_string" 
+			type="textarea" 
+			default="" 
+			label="COM_MULTICACHE_FIELD_IMAGES_URL_STRING_LABEL" 
+			description="COM_MULTICACHE_FIELD_IMAGES_URL_STRING_DESC" 
+			rows="5" cols="10" 
+			/>
+		</fieldset>
+		
+</form>

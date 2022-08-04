@@ -1,0 +1,17 @@
+.paddle{
+border: 1px solid #DDD;
+text-align: center;
+background-color: #F3F3F3;
+padding-top: 4px;
+border-radius: 3px;
+margin: 10px;
+}
+.margin-buffer{
+margin-bottom: 4px;
+}
+.paddle>div>div{
+	margin: 5px 0 5px;
+}
+input.input-lg{
+	min-height:40px;
+}

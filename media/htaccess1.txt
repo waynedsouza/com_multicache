@@ -1,0 +1,16 @@
+#######################################################################################################
+# @version 1.0.1.5
+# @package com_multicache
+# @copyright Copyright (C) Multicache.org 2015. All rights reserved.
+# @licenseEULA see LICENSE.txt - http://multicache.org/terms-conditions/end-user-license-agreement.html
+# @author Wayne DSouza <consulting@OnlineMarketingConsultants.in> - http://OnlineMarketingConsultants.in
+########################################################################################################
+
+Options +FollowSymLinks
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_IF_NONE_MATCH:%{HTTP:If-None-Match}]
+RewriteCond %{QUERY_STRING} !(^|&)cbypass=true(&|$) [NC]
+RewriteRule ^(.*)/([^/]+)/([^/]+)/([^/]+)\.(js|css) multicache_resolver.php?f=$1&g=$2&h=$3&i=$4&j=$5 [E=no-gzip:1]
+</IfModule>
+#test the E=nogzip as php is already compressing

@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `#__multicache_advanced_ccomp_factor_base`;
+DROP TABLE IF EXISTS `#__multicache_advanced_loadinstruction_base`;
+DROP TABLE IF EXISTS `#__multicache_advanced_precache_factor`;
+DROP TABLE IF EXISTS `#__multicache_advanced_testgroups`;
+DROP TABLE IF EXISTS `#__multicache_advanced_test_results`;
+DROP TABLE IF EXISTS `#__multicache_config`;
+DROP TABLE IF EXISTS `#__multicache_gzip_factor_base`;
+DROP TABLE IF EXISTS `#__multicache_items`;
+DROP TABLE IF EXISTS `#__multicache_itemscache`;
+DROP TABLE IF EXISTS `#__multicache_items_slabs`;
+DROP TABLE IF EXISTS `#__multicache_items_stats`;
+DROP TABLE IF EXISTS `#__multicache_urlarray`;

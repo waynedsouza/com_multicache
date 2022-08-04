@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset label="COM_MULTICACHE_TOLERANCES_SETTINGS" name="multicache">
+    
+    <field
+			name="tolerance_highlighting"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+			label="COM_MULTICACHE_TOLERANCE_HIGHLIGHTING_LABEL"
+			description="COM_MULTICACHE_TOLERANCE_HIGHLIGHTING_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		
+		<field
+			name="danger_tolerance_factor"
+			type="text"
+			filter="float"
+			label="COM_MULTICACHE_TOLERANCE_DANGER_TOLERANCE_LABEL"
+			description="COM_MULTICACHE_TOLERANCE_DANGER_TOLERANCE_DESC"
+			default="3"
+		/>
+		<field name="danger_tolerance_color" 
+		type="color" 
+		default="#a94442"
+		label="COM_MULTICACHE_TOLERANCE_DANGER_TOLERANCE_COLOR_LABEL"
+		description="COM_MULTICACHE_TOLERANCE_DANGER_TOLERANCE_COLOR_DESC" />
+		
+		<field
+			name="warning_tolerance_factor"
+			type="text"
+			filter="float"
+			label="COM_MULTICACHE_TOLERANCE_WARNING_TOLERANCE_LABEL"
+			description="COM_MULTICACHE_TOLERANCE_WARNING_TOLERANCE_DESC"
+			default="2.5"
+		/>
+		<field name="warning_tolerance_color" 
+		type="color" 
+		default="#8a6d3b"
+		label="COM_MULTICACHE_TOLERANCE_WARNING_TOLERANCE_COLOR_LABEL"
+		description="COM_MULTICACHE_TOLERANCE_WARNING_TOLERANCE_COLOR_DESC" />
+		
+		<field name="success_tolerance_color" 
+		type="color" 
+		default="#468847"
+		label="COM_MULTICACHE_TOLERANCE_SUCCESS_TOLERANCE_COLOR_LABEL"
+		description="COM_MULTICACHE_TOLERANCE_SUCCESS_TOLERANCE_COLOR_DESC" />
+   
+				
+        
+    </fieldset>
+    <!--
+    <fieldset label="COM_MULTICACHE_PRECACHE_SETTINGS" name="multicache_conduit">
+    
+    
+     <field
+			name="precache_switch"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+			label="COM_MULTICACHE_PRECACHE_SWITCH_LABEL"
+			description="COM_MULTICACHE_PRECACHE_SWITCH_DESC">
+			<option value="0">JNo</option>
+			<option value="1">JYes</option>
+		</field>
+		
+		
+		
+    </fieldset>
+    -->
+     <fieldset 
+        name="permissions"
+	description="JCONFIG_PERMISSIONS_DESC"
+	label="JCONFIG_PERMISSIONS_LABEL">
+
+		<field 
+                    name="rules" type="rules" component="com_multicache"
+                    class="inputbox" filter="rules" validate="rules"
+                    label="JCONFIG_PERMISSIONS_LABEL"
+                    section="component" />
+                    <action
+				name="core.admin"
+				title="JACTION_ADMIN"
+				description="JACTION_MANAGE_COMPONENT_DESC" />
+			<action
+				name="core.manage"
+				title="JACTION_MANAGE"
+				description="JACTION_MANAGE_COMPONENT_DESC" />
+				<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_COMPONENT_DESC" />
+				
+	</fieldset>
+   
+</config>
